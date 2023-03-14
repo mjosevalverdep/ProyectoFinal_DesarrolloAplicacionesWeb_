@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Sin Limites Travel Agency__</title>
         <meta charset="UTF-8">
@@ -9,12 +8,13 @@
     <body>
         <header>
             <nav>
-                <a href="#">Acerca</a>
-                <a href="#">Tours</a>
-                <a href="#">Bookings</a>
-                <a href="#">Destinos</a>
-                <a href="/Contacto" >Contáctanos</a>
-                <a href="#">Login</a>
+                <!-- comment <a th:href="">Acerca</a> -->
+                <a th:href="@{/tour/listadoTour}">Tours</a>
+                <!--<a th:href="">Bookings</a>
+                <a th:href="">Destinos</a>-->
+                <a th:href="@{/Contacto}" >Contáctanos</a>
+                <!--<a th:href="">Login</a>-->  
+                <a th:href="@{/}">Home</a>
             </nav>
         </header>
         <div class="encabezado-img">
@@ -24,34 +24,6 @@
             <h2>Correo Electronico: sinlimites@gmail.com </h2>
             <br/>
             <p>Si tienes alguna pregunta o comentario, no dudes en contactarnos.</p>
-        </div>
-        <div class="encabezado-img">
-            <section>
-                <h2>Reseñas</h2>
-                <form>
-                    <div>
-                        <label for="nombre">Nombre:</label>
-                        <input type="text" id="nombre" name="nombre" required>
-                    </div>
-                    <div>
-                        <label for="destino">Destino:</label>
-                        <input type="text" id="destino" name="destino" required>
-                    </div>
-                    <div>
-                        <label for="correo">Correo:</label>
-                        <input type="email" id="correo" name="correo" required>
-                    </div>
-                    <div>
-                        <label for="descripcion">Descripción:</label>
-                        <textarea id="descripcion" name="descripcion" required></textarea>
-                    </div>
-                    <div>
-                        <label for="votacion">Votación:</label>
-                        <input type="range" id="votacion" name="votacion" min="0" max="5" step="1">
-                    </div>
-                    <button type="submit">Enviar reseña</button>
-                </form>
-            </section>
         </div>
     </body>
 </html>

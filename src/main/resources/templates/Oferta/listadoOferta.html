@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">   
+    <head>
+        <title>Sin Limites Travel Agency__</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <!-- comment <a th:href="">Acerca</a> -->
+                <a th:href="@{/}">Home</a>
+                <a th:href="@{/tour/listadoTour}">Tours</a>
+                <!--<a th:href="">Bookings</a>
+                <a th:href="">Destinos</a>-->
+                <a th:href="@{/Contacto}" >Contáctanos</a>
+                <!--<a th:href="">Login</a>-->  
+
+
+            </nav>
+        </header>
+        <div class="encabezado-img">
+            <h2 id="titulo2">Ofertas de la semana</h2>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div th:if="${ofertas != null and !ofertas.empty}">
+                <table border="1" id="tabla">
+                    <thead>
+                    <th>Nombre del Lugar</th>
+                    <th>Localidad</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    </thead>
+                    <tbody>
+                        <tr th:each="oferta : ${ofertas}">                          
+                            <td th:text="${oferta.nombreLugar}"></td>
+                            <td th:text="${oferta.localidad}"></td>
+                            <td th:text="${oferta.descripcion}"></td>
+                            <td th:text="${#numbers.formatDecimal(oferta.precio, 0 , 2)}"></td> 
+                        </tr>
+                    </tbody>
+                </table>  
+            </div>
+            <div th:if="${ofertas == null and ofertas.empty}">
+                No hay tours disponibles....
+            </div>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">   
+    <head>
+        <title>Sin Limites Travel Agency__</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <!-- comment <a th:href="">Acerca</a> -->
+                <a th:href="@{/}">Home</a>
+                <a th:href="@{/tour/listadoTour}">Tours</a>
+                <!--<a th:href="">Bookings</a>
+                <a th:href="">Destinos</a>-->
+                <a th:href="@{/Contacto}" >Contáctanos</a>
+                <!--<a th:href="">Login</a>-->  
+                <a th:href="@{/oferta/listadoOferta}">Ofertas</a>
+            </nav>
+        </header>
+        <div class="encabezado-img">
+            <h2 id="titulo">Tours</h2>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div th:if="${tours != null and !tours.empty}">
+                <table border="1" id="tabla">
+                    <thead>
+                    <th>Tipo</th>
+                    <th>Localidad</th>
+                    <th>Descripcion</th>
+                    <th>Precio</th>
+                    </thead>
+                    <tbody>
+                        <tr th:each="tour : ${tours}">                          
+                            <td th:text="${tour.tipo}"></td>
+                            <td th:text="${tour.localidad}"></td>
+                            <td th:text="${tour.descripcion}"></td>
+                            <td th:text="${#numbers.formatDecimal(tour.precio, 0 , 2)}"></td> 
+                        </tr>
+                    </tbody>
+                </table>  
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div th:if="${tours == null and tours.empty}">
+                No hay tours disponibles....
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <section >
+                <h2>Reseñas</h2>
+                <form>
+                    <div>
+                        <label for="nombre">Nombre:</label><br>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div>
+                        <label for="destino">Destino:</label><br>
+                        <input type="text" id="destino" name="destino" required>
+                    </div>
+                    <div>
+                        <label for="correo">Correo:</label><br>
+                        <input type="email" id="correo" name="correo" required>
+                    </div>
+                    <div>
+                        <label for="descripcion">Descripción:</label><br>
+                        <textarea id="descripcion" name="descripcion" required></textarea>
+                    </div>
+                    <div>
+                        <label for="votacion">Votación:</label><br>
+                        <input type="range" id="votacion" name="votacion" min="0" max="5" step="1">
+                    </div>
+                    <button type="submit">Enviar reseña</button>
+                </form>
+            </section>
+    </body>
+</html>
