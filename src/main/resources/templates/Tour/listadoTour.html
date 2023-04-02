@@ -9,20 +9,20 @@
     <body>
         <header>
             <nav>
-                <!-- comment <a th:href="">Acerca</a> -->
+                <a href="#">Acerca</a> 
                 <a th:href="@{/}">Home</a>
                 <a th:href="@{/tour/listadoTour}">Tours</a>
-                <!--<a th:href="">Bookings</a>
-                <a th:href="">Destinos</a>-->
+                <a href="#">Bookings</a>
+                <a href="#">Destinos</a>
                 <a th:href="@{/Contacto}" >Contáctanos</a>
-                <!--<a th:href="">Login</a>-->  
+                <a href="#""">Login</a>  
                 <a th:href="@{/oferta/listadoOferta}">Ofertas</a>
             </nav>
         </header>
         <div class="encabezado-img">
             <h2 id="titulo">Tours</h2>
             <br>
-            <br>
+            <a id="NuevoTour" th:href="@{/tour/nuevoTour}">Nuevo Tour</a>
             <br>
             <br>
             <div th:if="${tours != null and !tours.empty}">
@@ -32,6 +32,7 @@
                     <th>Localidad</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
+                    <th colspan="2">Acciones</th>
                     </thead>
                     <tbody>
                         <tr th:each="tour : ${tours}">                          
@@ -39,6 +40,8 @@
                             <td th:text="${tour.localidad}"></td>
                             <td th:text="${tour.descripcion}"></td>
                             <td th:text="${#numbers.formatDecimal(tour.precio, 0 , 2)}"></td> 
+                            <td><a th:href="@{/tour/modificarTour/} + ${tour.idTour}">Modificar</a></td>
+                            <td><a th:href="@{/tour/eliminarTour/} + ${tour.idTour}">Eliminar</a></td>
                         </tr>
                     </tbody>
                 </table>  
@@ -56,7 +59,7 @@
             <br>
             <br>
             <section >
-                <h2>Reseñas</h2>
+                <h2 id="ReseñasTour"><br/><br/><br/>Reseñas</h2>
                 <form>
                     <div>
                         <label for="nombre">Nombre:</label><br>

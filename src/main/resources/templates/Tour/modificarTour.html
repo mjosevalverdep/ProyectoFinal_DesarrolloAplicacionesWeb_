@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sin Limites Travel Agency__</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <div class="encabezado-img">
+            <h1>Datos del tour</h1>
+            <br/>
+            <a th:href="@{/tour/listadoTour}" id="Regresar">Regresar</a>
+            <br/>
+            <br/>
+            <form th:action="@{/tour/guardarTour}"
+                  method="POST"
+                  th:object="${tour}">
+                <label for="tipo">Tipo:</label></br>
+                <input type="hidden" name="idTour" th:field="*{idTour}"></br>
+                <input type="text" name="tipo" th:field="*{tipo}"></br>
+                <label for="localidad">Localidad:</label></br>
+                <input type="text" name="localidad" th:field="*{localidad}"></br>
+                <label for="decripcion">Descripición:</label></br>
+                <input type="text" name="descripcion" th:field="*{descripcion}"></br>
+                <label for="precio">Precio:</label></br>
+                <input type="number" name="precio" th:field="*{precio}"><br/>
+                <input type="submit" name="Guardar" value="Guardar" />
+            </form>     
+        </div>
+    </body>
+</html>

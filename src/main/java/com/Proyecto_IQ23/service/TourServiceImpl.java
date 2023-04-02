@@ -13,13 +13,13 @@ public class TourServiceImpl implements TourService {
     @Autowired
     TourDao tourDao;
 
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = true) //Para transacciones de lectura
     @Override
     public List<Tour> getTours() {
         return (List<Tour>) tourDao.findAll();
     }
     
-    @Transactional(readOnly = true)
+    @Transactional(readOnly = true) //Para transacciones de lectura
     @Override
     public Tour getTour(Tour tour) {
         return tourDao.findById(tour.getIdTour()).orElse(null);

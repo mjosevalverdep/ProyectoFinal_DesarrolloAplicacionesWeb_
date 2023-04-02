@@ -9,7 +9,7 @@ public interface TourService {
 
     public Tour getTour(Tour tour);
 
-    public void save(Tour tour);
+    public void save(Tour tour); //Tanto para insertar como guardar un registro
 
     public void delete(Tour tour);
 }
