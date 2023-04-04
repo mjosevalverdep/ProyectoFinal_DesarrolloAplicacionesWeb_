@@ -16,12 +16,13 @@
                 <a th:href="">Destinos</a>-->
                 <a th:href="@{/Contacto}" >Contáctanos</a>
                 <!--<a th:href="">Login</a>-->  
-
-
             </nav>
         </header>
         <div class="encabezado-img">
-            <h2 id="titulo2">Ofertas de la semana</h2>
+            <h1>Ofertas de la semana</h1>
+            <br>
+            <br>
+            <a id="NuevoOferta" th:href="@{/oferta/nuevoOferta}">Nueva Oferta</a>
             <br>
             <br>
             <br>
@@ -33,13 +34,16 @@
                     <th>Localidad</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
+                    <th colspan="2">Acciones</th>
                     </thead>
                     <tbody>
                         <tr th:each="oferta : ${ofertas}">                          
                             <td th:text="${oferta.nombreLugar}"></td>
                             <td th:text="${oferta.localidad}"></td>
                             <td th:text="${oferta.descripcion}"></td>
-                            <td th:text="${#numbers.formatDecimal(oferta.precio, 0 , 2)}"></td> 
+                            <td th:text="${#numbers.formatDecimal(oferta.precio, 0 , 2)}"></td>
+                            <td><a th:href="@{/oferta/modificarOferta/} + ${oferta.idOferta}">Modificar</a></td>
+                            <td><a th:href="@{/oferta/eliminarOferta/} + ${oferta.idOferta}">Eliminar</a></td>
                         </tr>
                     </tbody>
                 </table>  
