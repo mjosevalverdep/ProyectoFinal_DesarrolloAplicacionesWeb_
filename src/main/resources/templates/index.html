@@ -14,7 +14,13 @@
                 <a href="#">Bookings</a>
                 <a href="#">Destinos</a>
                 <a th:href="@{/Contacto}" >Contáctanos</a>
-                <a href="#">Login</a>      
+                <a href="#" class="nav-link"> 
+                <span>Bievenido:</span>
+                <span sec:authentication="name">Usuario</span> 
+                </a>
+                <form method="POST" th:action="@{/logout}">
+                    <a href="#" onclick="this.parentNode.submit();">Salir</a> 
+                </form> 
             </nav>
         </header>
         <div class="encabezado-img">

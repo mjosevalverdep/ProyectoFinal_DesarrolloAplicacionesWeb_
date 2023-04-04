@@ -14,16 +14,22 @@
                 <a th:href="@{/tour/listadoTour}">Tours</a>
                 <a href="#">Bookings</a>
                 <a href="#">Destinos</a>
-                <a th:href="@{/Contacto}" >Contáctanos</a>
-                <a href="#""">Login</a>  
+                <a th:href="@{/Contacto}" >Contáctanos</a> 
                 <a th:href="@{/oferta/listadoOferta}">Ofertas</a>
+                <a href="#" class="nav-link"> 
+                    <span>Bievenido:</span>
+                    <span sec:authentication="name">Usuario</span> 
+                </a>
+                <form method="POST" th:action="@{/logout}">
+                    <a href="#" onclick="this.parentNode.submit();">Salir</a> 
+                </form> 
             </nav>
         </header>
+        <div>
+            <a th:href="@{/tour/nuevoTour}" sec:authorize="hasRole('ROLE_ADMIN')">Nuevo Tour</a>
+        </div>
         <div class="encabezado-img">
             <h2 id="titulo">Tours</h2>
-            <br>
-            <a id="NuevoTour" th:href="@{/tour/nuevoTour}">Nuevo Tour</a>
-            <br>
             <br>
             <div th:if="${tours != null and !tours.empty}">
                 <table border="1" id="tabla">
@@ -32,7 +38,7 @@
                     <th>Localidad</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
-                    <th colspan="2">Acciones</th>
+                    <th colspan="2" sec:authorize="hasRole('ROLE_ADMIN')">Acciones</th>
                     </thead>
                     <tbody>
                         <tr th:each="tour : ${tours}">                          
@@ -40,23 +46,21 @@
                             <td th:text="${tour.localidad}"></td>
                             <td th:text="${tour.descripcion}"></td>
                             <td th:text="${#numbers.formatDecimal(tour.precio, 0 , 2)}"></td> 
-                            <td><a th:href="@{/tour/modificarTour/} + ${tour.idTour}">Modificar</a></td>
-                            <td><a th:href="@{/tour/eliminarTour/} + ${tour.idTour}">Eliminar</a></td>
+                            <td><a th:href="@{/tour/modificarTour/} + ${tour.idTour}" sec:authorize="hasRole('ROLE_ADMIN')">Modificar</a></td>
+                            <td><a th:href="@{/tour/eliminarTour/} + ${tour.idTour}" sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</a></td>
                         </tr>
                     </tbody>
                 </table>  
             </div>
             <br>
             <br>
-            <br>
-            <br>
-            <br>
-            <div th:if="${tours == null and tours.empty}">
-                No hay tours disponibles....
-            </div>
-            <br>
-            <br>
-            <br>
-            <br>
+        </div>
+        <div th:if="${tours == null and tours.empty}">
+            No hay tours disponibles....
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
     </body>
 </html>

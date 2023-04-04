@@ -9,22 +9,27 @@
     <body>
         <header>
             <nav>
-                <!-- comment <a th:href="">Acerca</a> -->
+                <a href="#">Acerca</a> 
                 <a th:href="@{/}">Home</a>
                 <a th:href="@{/tour/listadoTour}">Tours</a>
-                <!--<a th:href="">Bookings</a>
-                <a th:href="">Destinos</a>-->
-                <a th:href="@{/Contacto}" >Contáctanos</a>
-                <!--<a th:href="">Login</a>-->  
+                <a href="#">Bookings</a>
+                <a href="#">Destinos</a>
+                <a th:href="@{/Contacto}" >Contáctanos</a> 
+                <a th:href="@{/oferta/listadoOferta}">Ofertas</a>
+                <a href="#"> 
+                    <span>Bievenido:</span>
+                    <span sec:authentication="name">Usuario</span> 
+                </a>
+                <form method="POST" th:action="@{/logout}">
+                    <a href="#" onclick="this.parentNode.submit();">Salir</a> 
+                </form> 
             </nav>
         </header>
+        <div>
+            <a th:href="@{/oferta/nuevoOferta}" sec:authorize="hasRole('ROLE_ADMIN')">Nueva Oferta</a>
+        </div>
         <div class="encabezado-img">
-            <h1>Ofertas de la semana</h1>
-            <br>
-            <br>
-            <a id="NuevoOferta" th:href="@{/oferta/nuevoOferta}">Nueva Oferta</a>
-            <br>
-            <br>
+            <h2 id="titulo">Ofertas de la semana</h2>
             <br>
             <br>
             <div th:if="${ofertas != null and !ofertas.empty}">
@@ -34,7 +39,7 @@
                     <th>Localidad</th>
                     <th>Descripcion</th>
                     <th>Precio</th>
-                    <th colspan="2">Acciones</th>
+                    <th colspan="2" sec:authorize="hasRole('ROLE_ADMIN')">Acciones</th>
                     </thead>
                     <tbody>
                         <tr th:each="oferta : ${ofertas}">                          
@@ -42,14 +47,15 @@
                             <td th:text="${oferta.localidad}"></td>
                             <td th:text="${oferta.descripcion}"></td>
                             <td th:text="${#numbers.formatDecimal(oferta.precio, 0 , 2)}"></td>
-                            <td><a th:href="@{/oferta/modificarOferta/} + ${oferta.idOferta}">Modificar</a></td>
-                            <td><a th:href="@{/oferta/eliminarOferta/} + ${oferta.idOferta}">Eliminar</a></td>
+                            <td><a th:href="@{/oferta/modificarOferta/} + ${oferta.idOferta}" sec:authorize="hasRole('ROLE_ADMIN')">Modificar</a></td>
+                            <td><a th:href="@{/oferta/eliminarOferta/} + ${oferta.idOferta}" sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</a></td>
                         </tr>
                     </tbody>
                 </table>  
             </div>
-            <div th:if="${ofertas == null and ofertas.empty}">
-                No hay tours disponibles....
-            </div>
+        </div>
+        <div th:if="${ofertas == null and ofertas.empty}">
+            No hay tours disponibles....
+        </div>
     </body>
 </html>
