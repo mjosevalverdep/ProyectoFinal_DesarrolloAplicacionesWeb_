@@ -5,15 +5,16 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
         <header>
             <nav>
-                <a href="#">Acerca</a> 
+                <a th:href="@{/About}">Acerca</a> 
                 <a th:href="@{/}">Home</a>
                 <a th:href="@{/tour/listadoTour}">Tours</a>
                 <a href="#">Bookings</a>
-                <a href="#">Destinos</a>
+                <a th:href="@{/Destinos}">Destinos</a>
                 <a th:href="@{/Contacto}" >Contáctanos</a> 
                 <a th:href="@{/oferta/listadoOferta}">Ofertas</a>
                 <a href="#"> 
@@ -21,7 +22,7 @@
                     <span sec:authentication="name">Usuario</span> 
                 </a>
                 <form method="POST" th:action="@{/logout}">
-                    <a href="#" onclick="this.parentNode.submit();">Salir</a> 
+                    <a class="salir" href="#" onclick="this.parentNode.submit();"><i class="material-icons">directions_walk</i></a> 
                 </form> 
             </nav>
         </header>

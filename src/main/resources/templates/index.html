@@ -5,30 +5,33 @@
         <title>Sin Limites Travel Agency__</title>
         <meta charset="UTF-8">
         <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
         <header> 
             <nav>
-                <a href="#">Acerca</a> 
+                <a th:href="@{/About}">Acerca</a> 
                 <a th:href="@{/tour/listadoTour}">Tours</a>
                 <a href="#">Bookings</a>
-                <a href="#">Destinos</a>
-                <a th:href="@{/Contacto}" >Contáctanos</a>
+                <a th:href="@{/Destinos}">Destinos</a>
+                <a th:href="@{/Contacto}">Contáctanos</a>
                 <a href="#" class="nav-link"> 
                 <span>Bievenido:</span>
-                <span sec:authentication="name">Usuario</span> 
-                </a>
+                <span sec:authentication="name">Usuario</span>              
                 <form method="POST" th:action="@{/logout}">
-                    <a href="#" onclick="this.parentNode.submit();">Salir</a> 
+                    <a class="salir" href="#" onclick="this.parentNode.submit();"><i class="material-icons">directions_walk</i></a> 
                 </form> 
             </nav>
         </header>
-        <div class="encabezado-img">
-            <br>
-            <br>
-            <p>Travel Agency</p>
-            <h1>TRAVEL AND LEARN THE BEST WAY TO DO IT</h1>
-            <p>Recorriendo Costa Rica</p>
-        </div>
+        <section class="container">
+            <div class="encabezado-img">
+                <br>
+                    <div class="content">
+                        <p>Travel Agency</p>
+                        <h1>TRAVEL AND LEARN THE BEST WAY TO DO IT</h1>
+                        <p>Recorriendo Costa Rica</p>
+                    </div>
+            </div>
+        </section>
     </body>
 </html>

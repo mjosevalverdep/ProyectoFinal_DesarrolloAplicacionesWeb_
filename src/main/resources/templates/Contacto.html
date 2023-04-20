@@ -4,26 +4,41 @@
         <title>Sin Limites Travel Agency__</title>
         <meta charset="UTF-8">
             <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
+            <link href="/css/Contacto.css" rel="stylesheet" type="text/css"/>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     </head>
+    <header>
+        <nav>
+            <a th:href="@{/About}">Acerca</a> 
+            <a th:href="@{/tour/listadoTour}">Tours</a>
+            <a href="#">Bookings</a>
+            <a th:href="@{/Destinos}">Destinos</a>
+            <a th:href="@{/Contacto}" >Contáctanos</a>
+            <a th:href="@{/}">Home</a>
+        </nav>
+    </header>
     <body>
-        <header>
-            <nav>
-                <!-- comment <a th:href="">Acerca</a> -->
-                <a th:href="@{/tour/listadoTour}">Tours</a>
-                <!--<a th:href="">Bookings</a>
-                <a th:href="">Destinos</a>-->
-                <a th:href="@{/Contacto}" >Contáctanos</a>
-                <!--<a th:href="">Login</a>-->  
-                <a th:href="@{/}">Home</a>
-            </nav>
-        </header>
-        <div class="encabezado-img">
-            <h1>Contacta con nosotros</h1>
-            <br/>
-            <h2>Telefono: +506 7018 9450</h2>
-            <h2>Correo Electronico: sinlimites@gmail.com </h2>
-            <br/>
-            <p>Si tienes alguna pregunta o comentario, no dudes en contactarnos.</p>
-        </div>
+        <section class="contact">
+                <div class="contact-form">
+                    <h1>Contác<span>tanos</span></h1>
+                    <p>Si deseas ponerte en contacto con nuestra agencia de viajes debes llenar el formulario con tu información para poder
+                    llegar a ti de una manera óptima, recuerda que también nos puedes encontrar en redes sociales como @Travel_AgencyCR.</p>
+                    <p class="fa fa-facebook-square fa-2x" aria-hidden="true"></p>
+                    <p class="fa fa-instagram fa-2x" aria-hidden="true"></p>
+                    <p class="fa fa-whatsapp fa-2x" aria-hidden="true"></p>
+                    <p class="fa fa-twitter-square fa-2x" aria-hidden="true"></p>
+                    <form action="">
+                        <input type="" placeholder="Su Nombre" required>
+                        <input type="email" name="Correo Electrónico" id="" placeholder="E-mail" required>
+                        <input type="" placeholder="Escribe el motivo" required>
+                        <textarea name"" id="" cols="30" rows="10" placeholder="Tu Mensaje" required>
+                        </textarea>
+                        <input type="submit" name="" value="Guardar" class="btn">           
+                    </form>            
+                </div>       
+            <div class="contact-img">
+                <img src="../imagenes/Contact Us.jpg" alt="" width="119%"/>
+            </div>
+        </section>
     </body>
 </html>

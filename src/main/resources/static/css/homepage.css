@@ -23,10 +23,9 @@ nav a:hover{
     background-color:#000;
     color:#fff;
 }
-
 .encabezado-img{
-    background-image: url("../imagenes/fondo.jpg");
-    height:925px;
+    background-image: url("../imagenes/Homewall.jpg");
+    height:720px;
     width: 100%;
     background-size: cover;
     display:flex;
@@ -35,6 +34,12 @@ nav a:hover{
     align-items: center;   
     color:#fff;
 }
+.salir {
+   position:absolute;
+   left: 94%;
+   top: 3%;
+}
+
 .encabezado-img p{
     font-size: 20px;
 }
@@ -91,3 +96,9 @@ nav a:hover{
 #Regresar{
     color:white;
 }
+.content{
+    text-align: center;
+    color:white;
+    height: 30%;
+}
+

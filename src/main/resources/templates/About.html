@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+      <head>
+        <title>Sin Limites Travel Agency__</title>
+        <meta charset="UTF-8">
+            <link href="/css/About.css" rel="stylesheet" type="text/css"/>
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+       <header>
+           <nav>
+                <a th:href="@{/About}">Acerca</a> 
+                <a th:href="@{/tour/listadoTour}">Tours</a>
+                <a href="#">Bookings</a>
+                <a th:href="@{/Destinos}">Destinos</a>
+                <a th:href="@{/Contacto}" >Contáctanos</a>
+                <a th:href="@{/}">Home</a>
+            </nav> 
+        </header>
+        <div class="service">
+            <div class="max-width">
+                <h1>Sobre Nosotros</h1>
+                <div class="content">
+                    <div class="card">
+                        <div class="box">
+                            <i class="large material-icons">insert_chart</i>
+                            <h3>Misión</h3>
+                            <p>Incentivar y aumentar el turismo con el que Costa Rica cuenta, mediante el conocimiento claro y dinámico
+                            de los servicios ofrecidos por la agencia.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                             <i class="large material-icons">airplanemode_active</i>
+                                <h3>Visión</h3>
+                            <p>Reconocimiento y pocicionamiento alto del turismo en Costa Rica gracias a la colaboración de
+                                nuestra empresa TravelAgency en cada rincón de Costa Rica.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <i class="large material-icons">all_inclusive</i>
+                            <h3>Metas</h3>
+                            <p>Una empresa costarricense el cual llegue a ser reconocida y totalmente fiable tanto a nivel nacional 
+                                como internacional gracias al desempeño y servicio brindado.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="box">
+                            <i class="large material-icons">important_devices</i>
+                            <h3>Comodidad</h3>
+                            <p>Somos una empresa la cual cuenta con una plataforma robusta, comoda y sencilla para que usted esté a un solo click de conocer los mejores
+                            destinos de Costa Rica</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </body>   
+</html>
