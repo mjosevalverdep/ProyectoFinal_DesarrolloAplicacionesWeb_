@@ -5,6 +5,7 @@
         <title>Sin Limites Travel Agency__</title>
         <meta charset="UTF-8">
         <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
@@ -16,8 +17,8 @@
                 <a th:href="@{/Destinos}">Destinos</a>
                 <a th:href="@{/Contacto}">Contáctanos</a>
                 <a href="#" class="nav-link"> 
-                <span>Bievenido:</span>
-                <span sec:authentication="name">Usuario</span>              
+                <span><i class="fa fa-user-tag"></i></span>
+                <span sec:authentication="name"></span>              
                 <form method="POST" th:action="@{/logout}">
                     <a class="salir" href="#" onclick="this.parentNode.submit();"><i class="material-icons">directions_walk</i></a> 
                 </form> 
