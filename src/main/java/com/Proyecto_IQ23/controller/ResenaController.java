@@ -32,7 +32,7 @@ public class ResenaController {
     @GetMapping("/resena/modificarResena/{idResena}")
     public String modificarResena (Resena resena, Model model){
         resena=resenaService.getResena(resena);
-        model.addAttribute("resena",resena);
+        model.addAttribute("resena", resena);
         return "/resena/modificarResena";
     }
     @GetMapping("/resena/eliminarResena/{idResena}")

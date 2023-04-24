@@ -1,15 +1,60 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
 <html>
     <head>
-        <title>TODO supply a title</title>
+    <head>
+        <title>Sin Limites Travel Agency__</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     </head>
-    <body>
-        <div>TODO write content</div>
+    <body style="background-color: black">
+        <header>
+            <nav>
+                <a th:href="@{/About}">Acerca</a> 
+                <a th:href="@{/}">Home</a>
+                <a th:href="@{/tour/listadoTour}">Tours</a>
+                <a href="#">Bookings</a>
+                <a th:href="@{/Destinos}">Destinos</a>
+                <a th:href="@{/Contacto}" >Contáctanos</a> 
+                <a th:href="@{/oferta/listadoOferta}">Ofertas</a>
+                <a href="#" class="nav-link"> 
+                    <span><i class="fa fa-user-tag"></i></span>
+                    <span sec:authentication="name"></span>
+                </a>
+                <form method="POST" th:action="@{/logout}">
+                    <a class="salir" href="#" onclick="this.parentNode.submit();"><i class="material-icons">directions_walk</i></a> 
+                </form> 
+            </nav>
+        </header>
+        <div>
+            <a th:href="@{/resena/modificarResena}" sec:authorize="hasRole('ROLE_ADMIN')" class="btn btn-dark text-white" style="margin: 0 auto;">Nueva Resena</a>
+        </div>
     </body>
+    <div class="container">
+            <h2 style="color: white; text-align: center">Reseñas</h2>
+            <br>
+            <br>
+            <div class="row row-cols-2"th:if="${resenas != null and !resenas.empty}">
+                <div class="card" style="clear: both; background-clip: padding-box;" th:each="resena : ${resenas}">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: black">[[${resena.destino}]]</h5>
+                        <h4 class="card-subtitle mb-2 text-muted text-end">[[${resena.nombre}]]</h4>
+                        <h3 class="card-subtitle"style="color: black">[[${resena.puntuacion}]]</h3>
+                        <p class="card-text" style="color: black">[[${resena.descripcion}]]</p>
+                        <a class="card-link btn btn-dark text-white" th:href="@{/resena/modificarResena/} + ${resena.idResena}" sec:authorize="hasRole('ROLE_ADMIN')">Modificar</a>
+                        <a class="card-link btn btn-dark text-white" th:href="@{/resena/eliminarResena/} + ${resena.idResena}" sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</a>
+                    </div>
+                </div>  
+            </div>
+            <br>
+            <br>
+        </div>
+        <div th:if="${resenas == null and resenas.empty}">
+            No hay tours disponibles....
+        </div>
 </html>

@@ -1,15 +1,50 @@
-<!DOCTYPE html>
-<!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
--->
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>Sin Limites Travel Agency__</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div class="container text-center">
+            <h1 class="mt-5 mb-4">Reseñas</h1>
+            <a th:href="@{/resena/listadoResena}" id="Regresar" class="btn btn-secondary mb-3">Regresar</a>
+            <div class="col-md-6 offset-md-3">
+                <form th:action="@{/resena/guardarResena}"
+                      method="POST"
+                      th:object="${resena}"
+                      class="form">
+
+                    <div class="form-group mb-3">
+                        <label for="tipo">Nombre Completo:</label>
+                        <input type="hidden" name="idTour" th:field="*{idResena}" class="form-control">
+                        <input type="text" name="tipo" th:field="*{nombre}" class="form-control">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="localidad">Destino:</label>
+                        <input type="text" name="Destino" th:field="*{destino}" class="form-control">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="descripcion">Descripción:</label>
+                        <input type="text" name="descripcion" th:field="*{descripcion}" class="form-control">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="precio">Puntuacion:</label>
+                        <input type="range" name="puntuacion" th:field="*{puntuacion}" class="form-control" min="0" max="5" step="1" >
+                    </div>
+
+                    <input type="submit" name="Guardar" value="Guardar" class="btn btn-dark mt-3">
+                </form>     
+            </div>
+        </div>
     </body>
 </html>
