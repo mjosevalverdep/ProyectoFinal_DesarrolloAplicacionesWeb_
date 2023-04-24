@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <section >
+            <h2 id="ReseñasTour"><br/><br/><br/>Reseñas</h2>
+            <form>
+                <div>
+                    <label for="nombre">Nombre Completo:</label><br>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div>
+                    <label for="destino">Destino:</label><br>
+                    <input type="text" id="destino" name="destino" required>
+                </div>
+                <div>
+                    <label for="descripcion">Descripción:</label><br>
+                    <textarea id="descripcion" name="descripcion" required></textarea>
+                </div>
+                <div>
+                    <label for="votacion">Votación:</label><br>
+                    <input type="range" id="votacion" name="votacion" min="0" max="5" step="1">
+                </div>
+                <button type="submit">Enviar reseña</button>
+            </form>
+        </section>
+    </body>
+</html>

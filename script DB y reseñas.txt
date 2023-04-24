@@ -1,0 +1,35 @@
+CREATE TABLE `sinlimites`.`resena` (
+`id_resena` INT NOT NULL AUTO_INCREMENT,
+`nombre` VARCHAR(60) NOT NULL,
+ `destino` VARCHAR(300) NOT NULL,
+ `descripcion` VARCHAR(300) NOT NULL,
+ `puntuacion` TINYINT NOT NULL CHECK (puntuacion >= 1 AND puntuacion <= 5),
+ PRIMARY KEY (`id_resena`))
+ENGINE = innoDB;
+
+insert into sinlimites.resena(nombre,destino,descripcion,puntuacion)
+	values ('Carlos Emanuel Jimenez Calvo','Cancun','Bonito, aunque hace mucho calor','4');
+
+
+<section >
+                <h2 id="ReseñasTour"><br/><br/><br/>Reseñas</h2>
+                <form>
+                    <div>
+                        <label for="nombre">Nombre Completo:</label><br>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div>
+                        <label for="destino">Destino:</label><br>
+                        <input type="text" id="destino" name="destino" required>
+                    </div>
+                    <div>
+                        <label for="descripcion">Descripción:</label><br>
+                        <textarea id="descripcion" name="descripcion" required></textarea>
+                    </div>
+                    <div>
+                        <label for="votacion">Votación:</label><br>
+                        <input type="range" id="votacion" name="votacion" min="0" max="5" step="1">
+                    </div>
+                    <button type="submit">Enviar reseña</button>
+                </form>
+            </section>
