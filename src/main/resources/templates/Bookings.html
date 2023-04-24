@@ -1,0 +1,57 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Sin Limites Travel Agency__</title>
+        <meta charset="UTF-8">
+        <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/Destinos.css" rel="stylesheet" type="text/css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Damion&family=Open+Sans:wght@600&family=Roboto:wght@100&display=swap" rel="stylesheet">
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    </head>
+    <body>
+        <header>
+            <nav>
+                <a th:href="@{/}">Home</a>
+                <a th:href="@{/About}">Acerca</a> 
+                <a th:href="@{/tour/listadoTour}">Tours</a>
+                <a th:href="@{/Bookings}">Bookings</a>
+                <a th:href="@{/Destinos}">Destinos</a>
+                <a th:href="@{/Contacto}">Contáctanos</a>
+                <a href="#" class="nav-link"> 
+                    <span><i class="fa fa-user-tag"></i></span>
+                    <span sec:authentication="name"></span>              
+                    <form method="POST" th:action="@{/logout}">
+                        <a class="salir" href="#" onclick="this.parentNode.submit();"><i class="material-icons">directions_walk</i></a> 
+                    </form> 
+            </nav>
+        </header><br/>
+        <h2 class="titulo">Mis Reservas</h2><br/><br/><br/><br/><br/><br/>
+        <div class="main-container">  
+            <img src="../imagenes/Shana By The Beach.jpg" alt="Shana By The Beach" class="image">
+            <div class="overlay">
+                <h1>Shana By The Beach</h1>
+                <p>Usted cuenta con una reseva para el dia 8 de Mayo.<br>
+                    Gracias Por preferisnos su agencia de viaje</p>
+            </div>
+        </div><br/><br/>
+        <div class="main-container">  
+            <img class="img2 "src="../imagenes/BarceloTambor.jpg" alt="Monte Verde">
+            <div class="overlay">
+                <h1>Barcelo Tambor</h1> 
+                <p>Usted cuenta con una reseva para el dia 10 de Junio.<br>
+                    Gracias Por preferisnos su agencia de viaje</p>
+            </div>
+        </div><br/><br/>
+        <div class="main-container">  
+            <img class="img3 "src="../imagenes/CaminoVerdeSantaElena.jpg" alt="La Fortuna">
+            <div class="overlay">
+                <h1>Camino Verde Santa Elena</h1> 
+                <p>Usted cuenta con una reseva para el dia 19 de Noviembre.<br>
+                    Gracias Por preferisnos su agencia de viaje</p>
+            </div> 
+        </div><br/><br/>        
+    </body>
+</html>

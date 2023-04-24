@@ -4,66 +4,73 @@
     <head>
         <title>Sin Limites Travel Agency__</title>
         <meta charset="UTF-8">
-            <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
-            <link href="/css/Destinos.css" rel="stylesheet" type="text/css"/>
-            <link rel="preconnect" href="https://fonts.googleapis.com">
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-            <link href="https://fonts.googleapis.com/css2?family=Damion&family=Open+Sans:wght@600&family=Roboto:wght@100&display=swap" rel="stylesheet">
-
+        <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/Destinos.css" rel="stylesheet" type="text/css"/>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Damion&family=Open+Sans:wght@600&family=Roboto:wght@100&display=swap" rel="stylesheet">
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <body>
         <header>
             <nav>
+                <a th:href="@{/}">Home</a>
                 <a th:href="@{/About}">Acerca</a> 
                 <a th:href="@{/tour/listadoTour}">Tours</a>
-                <a href="#">Bookings</a>
+                <a th:href="@{/Bookings}">Bookings</a>
                 <a th:href="@{/Destinos}">Destinos</a>
-                <a th:href="@{/Contacto}" >Contáctanos</a>   
-                <a th:href="@{/}">Home</a>
+                <a th:href="@{/Contacto}">Contáctanos</a>
+                <a href="#" class="nav-link"> 
+                    <span><i class="fa fa-user-tag"></i></span>
+                    <span sec:authentication="name"></span>              
+                    <form method="POST" th:action="@{/logout}">
+                        <a class="salir" href="#" onclick="this.parentNode.submit();"><i class="material-icons">directions_walk</i></a> 
+                    </form> 
             </nav>
         </header><br/>
         <h2 class="titulo">Top 5 destinos en Costa Rica</h2><br/><br/><br/><br/><br/><br/>
         <h3 class="titulo2">-Pura Vida-</h3><br/>
-            <div class="main-container">  
-                    <img src="../imagenes/poas.jpg" alt="Volcán Poás" class="image">
-                    <div class="overlay">
-                        <h1>Volcán Poás</h1> 
-                        <p>El Parque Nacional Volcán Poás fue establecido en 1955 con una extensión territorial aproximada de 1200 ha. Con la ratificación de 1970 y posterior
-                            ampliación de su territorio Decreto Ejecutivo No. 22961-MIRENEM, del 19 de enero de 1994.</p>
-                    </div>
-            </div><br/><br/>
-            <div class="main-container">  
-                <img class="img2 "src="../imagenes/monteverde.jpg" alt="Monte Verde">
-                <div class="overlay">
-                    <h1>Monte Verde</h1> 
-                    <p>Monte Verde es una ciudad en el noroeste montañoso de Costa Rica. Es reconocida por sus bosques biodiversos en las nubes. 
-                        La famosa Reserva Bosque Nuboso Monteverde alberga una infinidad de especies de fauna que incluye jaguares, ocelotes y el quetzal
-                        resplandeciente de plumas coloridas.</p> 
-                </div>
-            </div><br/><br/>
-            <div class="main-container">  
-                <img class="img3 "src="../imagenes/la fortuna.jpg" alt="La Fortuna">
-                <div class="overlay">
-                    <h1>La Fortuna</h1> 
-                    <p>La Fortuna es una pequeña comunidad de Costa Rica, al noroeste de la capital, San José. Es conocida como una vía de acceso al
-                        Parque Nacional Volcán Arenal, que abarca 2 volcanes. El volcán activo Arenal aún tiene flujos de lava.</p>
-                </div> 
-            </div><br/><br/>
-            <div class="main-container">    
-                <img class="img4" src="../imagenes/isla tortuga.jpg" alt="Isla Tortuga">
-                <div class="overlay">
-                    <h1>Isla Tortuga</h1> 
-                    <p>Isla Tortuga es el nombre que recibe una isla del país centroamericano de Costa Rica, que se encuentra en el Golfo de Nicoya en la costa del Océano Pacífico
-                        frente al Refugio de fauna salvaje Curu​ muy cerca de la península de Nicoya. Se trata en realidad de 2 islas pequeñas muy cercanas llamadas Alcatraz y Tolinga.</p>
-                </div>
-            </div><br/><br/>
-            <div class="main-container">    
-                <img class="img5" src="../imagenes/rio celeste.jpeg" alt="Rio Celeste">
-                <div class="overlay">
-                    <h1>Río Celeste</h1> 
-                        <p>Río Celeste es un río de Costa Rica, ubicado en la provincia de Alajuela, dentro del parque nacional Volcán Tenorio, en el Área de Conservación Arenal-Tempisque.
-                            Se encuentra formado por la confluencia de los ríos Buena Vista y Quebrada Agria en las faldas del volcán Tenorio.</p>
-                </div>
-            </div><br/><br/>
+        <div class="main-container">  
+            <img src="../imagenes/poas.jpg" alt="Volcán Poás" class="image">
+            <div class="overlay">
+                <h1>Volcán Poás</h1> 
+                <p>El Parque Nacional Volcán Poás fue establecido en 1955 con una extensión territorial aproximada de 1200 ha. Con la ratificación de 1970 y posterior
+                    ampliación de su territorio Decreto Ejecutivo No. 22961-MIRENEM, del 19 de enero de 1994.</p>
+            </div>
+        </div><br/><br/>
+        <div class="main-container">  
+            <img class="img2 "src="../imagenes/monteverde.jpg" alt="Monte Verde">
+            <div class="overlay">
+                <h1>Monte Verde</h1> 
+                <p>Monte Verde es una ciudad en el noroeste montañoso de Costa Rica. Es reconocida por sus bosques biodiversos en las nubes. 
+                    La famosa Reserva Bosque Nuboso Monteverde alberga una infinidad de especies de fauna que incluye jaguares, ocelotes y el quetzal
+                    resplandeciente de plumas coloridas.</p> 
+            </div>
+        </div><br/><br/>
+        <div class="main-container">  
+            <img class="img3 "src="../imagenes/la fortuna.jpg" alt="La Fortuna">
+            <div class="overlay">
+                <h1>La Fortuna</h1> 
+                <p>La Fortuna es una pequeña comunidad de Costa Rica, al noroeste de la capital, San José. Es conocida como una vía de acceso al
+                    Parque Nacional Volcán Arenal, que abarca 2 volcanes. El volcán activo Arenal aún tiene flujos de lava.</p>
+            </div> 
+        </div><br/><br/>
+        <div class="main-container">    
+            <img class="img4" src="../imagenes/isla tortuga.jpg" alt="Isla Tortuga">
+            <div class="overlay">
+                <h1>Isla Tortuga</h1> 
+                <p>Isla Tortuga es el nombre que recibe una isla del país centroamericano de Costa Rica, que se encuentra en el Golfo de Nicoya en la costa del Océano Pacífico
+                    frente al Refugio de fauna salvaje Curu​ muy cerca de la península de Nicoya. Se trata en realidad de 2 islas pequeñas muy cercanas llamadas Alcatraz y Tolinga.</p>
+            </div>
+        </div><br/><br/>
+        <div class="main-container">    
+            <img class="img5" src="../imagenes/rio celeste.jpeg" alt="Rio Celeste">
+            <div class="overlay">
+                <h1>Río Celeste</h1> 
+                <p>Río Celeste es un río de Costa Rica, ubicado en la provincia de Alajuela, dentro del parque nacional Volcán Tenorio, en el Área de Conservación Arenal-Tempisque.
+                    Se encuentra formado por la confluencia de los ríos Buena Vista y Quebrada Agria en las faldas del volcán Tenorio.</p>
+            </div>
+        </div><br/><br/>
     </body>
 </html>

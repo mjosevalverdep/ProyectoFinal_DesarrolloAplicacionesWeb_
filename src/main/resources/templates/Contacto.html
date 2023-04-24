@@ -3,39 +3,47 @@
     <head>
         <title>Sin Limites Travel Agency__</title>
         <meta charset="UTF-8">
-            <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
-            <link href="/css/Contacto.css" rel="stylesheet" type="text/css"/>
-            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
+        <link href="/css/Contacto.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous"><link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     </head>
     <header>
         <nav>
+            <a th:href="@{/}">Home</a>
             <a th:href="@{/About}">Acerca</a> 
             <a th:href="@{/tour/listadoTour}">Tours</a>
-            <a href="#">Bookings</a>
+            <a th:href="@{/Bookings}">Bookings</a>
             <a th:href="@{/Destinos}">Destinos</a>
-            <a th:href="@{/Contacto}" >Contáctanos</a>
-            <a th:href="@{/}">Home</a>
+            <a th:href="@{/Contacto}">Contáctanos</a>
+            <a href="#" class="nav-link"> 
+                <span><i class="fa fa-user-tag"></i></span>
+                <span sec:authentication="name"></span>              
+                <form method="POST" th:action="@{/logout}">
+                    <a class="salir" href="#" onclick="this.parentNode.submit();"><i class="material-icons">directions_walk</i></a> 
+                </form> 
         </nav>
     </header>
     <body>
         <section class="contact">
-                <div class="contact-form">
-                    <h1>Contác<span>tanos</span></h1>
-                    <p>Si deseas ponerte en contacto con nuestra agencia de viajes debes llenar el formulario con tu información para poder
+            <div class="contact-form">
+                <h1>Contác<span>tanos</span></h1>
+                <p>Si deseas ponerte en contacto con nuestra agencia de viajes debes llenar el formulario con tu información para poder
                     llegar a ti de una manera óptima, recuerda que también nos puedes encontrar en redes sociales como @Travel_AgencyCR.</p>
-                    <p class="fa fa-facebook-square fa-2x" aria-hidden="true"></p>
-                    <p class="fa fa-instagram fa-2x" aria-hidden="true"></p>
-                    <p class="fa fa-whatsapp fa-2x" aria-hidden="true"></p>
-                    <p class="fa fa-twitter-square fa-2x" aria-hidden="true"></p>
-                    <form action="">
-                        <input type="" placeholder="Su Nombre" required>
-                        <input type="email" name="Correo Electrónico" id="" placeholder="E-mail" required>
-                        <input type="" placeholder="Escribe el motivo" required>
-                        <textarea name"" id="" cols="30" rows="10" placeholder="Tu Mensaje" required>
-                        </textarea>
-                        <input type="submit" name="" value="Guardar" class="btn">           
-                    </form>            
-                </div>       
+                <p class="fa fa-facebook-square fa-2x" aria-hidden="true"></p>
+                <p class="fa fa-instagram fa-2x" aria-hidden="true"></p>
+                <p class="fa fa-whatsapp fa-2x" aria-hidden="true"></p>
+                <p class="fa fa-twitter-square fa-2x" aria-hidden="true"></p>
+                <form action="">
+                    <input type="" placeholder="Su Nombre" required>
+                    <input type="email" name="Correo Electrónico" id="" placeholder="E-mail" required>
+                    <input type="" placeholder="Escribe el motivo" required>
+                    <textarea name"" id="" cols="30" rows="10" placeholder="Tu Mensaje" required>
+                    </textarea>
+                    <input type="submit" name="" value="Guardar" class="btn">           
+                </form>            
+            </div>       
             <div class="contact-img">
                 <img src="../imagenes/Contact Us.jpg" alt="" width="119%"/>
             </div>

@@ -6,57 +6,54 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <meta charset="UTF-8">
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     </head>
-    <body>
+    <body style="background-color: black">
         <header>
             <nav>
-                <a th:href="@{/About}">Acerca</a> 
                 <a th:href="@{/}">Home</a>
+                <a th:href="@{/About}">Acerca</a> 
                 <a th:href="@{/tour/listadoTour}">Tours</a>
-                <a href="#">Bookings</a>
+                <a th:href="@{/Bookings}">Bookings</a>
                 <a th:href="@{/Destinos}">Destinos</a>
                 <a th:href="@{/Contacto}" >Contáctanos</a> 
                 <a th:href="@{/oferta/listadoOferta}">Ofertas</a>
                 <a href="#"> 
-                    <span>Bievenido:</span>
-                    <span sec:authentication="name">Usuario</span> 
+                <span><i class="fa fa-user-tag"></i></span>
+                <span sec:authentication="name"></span> 
                 </a>
+                <a th:href="@{/oferta/nuevoOferta}" sec:authorize="hasRole('ROLE_ADMIN')">Nueva Oferta</a>
                 <form method="POST" th:action="@{/logout}">
                     <a class="salir" href="#" onclick="this.parentNode.submit();"><i class="material-icons">directions_walk</i></a> 
                 </form> 
             </nav>
         </header>
-        <div>
-            <a th:href="@{/oferta/nuevoOferta}" sec:authorize="hasRole('ROLE_ADMIN')">Nueva Oferta</a>
-        </div>
-        <div class="encabezado-img">
-            <h2 id="titulo">Ofertas de la semana</h2>
+        <br>
+        <br>
+        <div class="container">
+            <h2 style="color: white; text-align: center">Ofertas de la semana</h2>
             <br>
             <br>
-            <div th:if="${ofertas != null and !ofertas.empty}">
-                <table border="1" id="tabla">
-                    <thead>
-                    <th>Nombre del Lugar</th>
-                    <th>Localidad</th>
-                    <th>Descripcion</th>
-                    <th>Precio</th>
-                    <th colspan="2" sec:authorize="hasRole('ROLE_ADMIN')">Acciones</th>
-                    </thead>
-                    <tbody>
-                        <tr th:each="oferta : ${ofertas}">                          
-                            <td th:text="${oferta.nombreLugar}"></td>
-                            <td th:text="${oferta.localidad}"></td>
-                            <td th:text="${oferta.descripcion}"></td>
-                            <td th:text="${#numbers.formatDecimal(oferta.precio, 0 , 2)}"></td>
-                            <td><a th:href="@{/oferta/modificarOferta/} + ${oferta.idOferta}" sec:authorize="hasRole('ROLE_ADMIN')">Modificar</a></td>
-                            <td><a th:href="@{/oferta/eliminarOferta/} + ${oferta.idOferta}" sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</a></td>
-                        </tr>
-                    </tbody>
-                </table>  
+            <div class="row row-cols-2" th:if="${ofertas != null and !ofertas.empty}">
+                <div class="card" th:each="oferta : ${ofertas}">
+                    <div class="card-body">
+                        <h5 class="card-title" style="color: black">[[${oferta.nombreLugar}]]</h5>
+                        <h6 class="card-subtitle mb-2 text-muted text-end">$[[${#numbers.formatDecimal(oferta.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]</h6>
+                        <h7 class="card-subtitle" style="color: black">[[${oferta.localidad}]]</h7>
+                        <p class="card-text" style="color: black">[[${oferta.descripcion}]]</p>
+                        <a class="card-link" th:href="@{/oferta/modificarOferta/} + ${oferta.idOferta}" sec:authorize="hasRole('ROLE_ADMIN')">Modificar</a>
+                        <a class="card-link" th:href="@{/oferta/eliminarOferta/} + ${oferta.idOferta}" sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</a>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div th:if="${ofertas == null and ofertas.empty}">
-            No hay tours disponibles....
+            <div th:if="${ofertas == null and ofertas.empty}">
+                No hay tours disponibles....
+            </div>
         </div>
     </body>
 </html>
