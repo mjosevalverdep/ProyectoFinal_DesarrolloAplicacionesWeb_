@@ -20,15 +20,18 @@ public class Oferta implements Serializable {
     String nombreLugar;
     String localidad;
     String descripcion;
+    private String rutaImagen;
     int precio;
 
     public Oferta() {
     }
 
-    public Oferta(String nombreLugar, String localidad, String descripcion, int precio) {
+    public Oferta(String nombreLugar, String localidad, String descripcion, String rutaImagen, int precio) {
         this.nombreLugar = nombreLugar;
         this.localidad = localidad;
         this.descripcion = descripcion;
+        this.rutaImagen = rutaImagen;
         this.precio = precio;
     }
+
 }

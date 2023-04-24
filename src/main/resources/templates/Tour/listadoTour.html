@@ -19,7 +19,7 @@
                 <a th:href="@{/About}">Acerca</a> 
                 <a th:href="@{/}">Home</a>
                 <a th:href="@{/tour/listadoTour}">Tours</a>
-                <a href="#">Bookings</a>
+                <a th:href="@{/Bookings}">Bookings</a>
                 <a th:href="@{/Destinos}">Destinos</a>
                 <a th:href="@{/Contacto}" >Contáctanos</a> 
                 <a th:href="@{/oferta/listadoOferta}">Ofertas</a>
@@ -44,6 +44,10 @@
                 <div class="card" style="clear: both; background-clip: padding-box;" th:each="tour : ${tours}">
                     <div class="card-body">
                         <h5 class="card-title" style="color: black">[[${tour.localidad}]]</h5>
+                        <figure>
+                            <img th:src="@{${tour.rutaImagen}}" height="100%" width="100%" />
+                        </figure>
+                        <br/>
                         <h4 class="card-subtitle mb-2 text-muted text-end">$[[${#numbers.formatDecimal(tour.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]</h4>
                         <h3 class="card-subtitle"style="color: black">[[${tour.tipo}]]</h3>
                         <p class="card-text" style="color: black">[[${tour.descripcion}]]</p>

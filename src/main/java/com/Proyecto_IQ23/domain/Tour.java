@@ -21,14 +21,16 @@ public class Tour implements Serializable {
     String localidad;
     String descripcion;
     int precio;
+    private String rutaImagen;
 
     public Tour() {
     }
 
-    public Tour(String tipo, String localidad, String descripcion, int precio) {
+    public Tour(String tipo, String localidad, String descripcion, int precio, String rutaImagen) {
         this.tipo = tipo;
         this.localidad = localidad;
         this.descripcion = descripcion;
         this.precio = precio;
-    } 
+        this.rutaImagen = rutaImagen;
+    }
 }
