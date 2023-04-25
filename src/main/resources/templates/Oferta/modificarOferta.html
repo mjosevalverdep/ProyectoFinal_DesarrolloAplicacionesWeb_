@@ -4,28 +4,46 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="/css/homepage.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+        <link rel="stylesheet" th:href="@{/webjars/font-awesome/css/all.css}"/>
+        <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+        <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
     </head>
     <body>
-        <div class="encabezado-img">
-            <h1>Datos de la Oferta</h1>
-            </br>
-            <a th:href="@{/oferta/listadoOferta}" id="Regresar">Regresar</a>
-            </br>
-            </br>
-            <form th:action="@{/oferta/guardarOferta}"
-                  method="POST"
-                  th:object="${oferta}">
-                <label for="nombreLugar">Nombre del Lugar:</label></br>
-                <input type="hidden" name="idOferta" th:field="*{idOferta}"></br>
-                <input type="text" name="nombreLugar" th:field="*{nombreLugar}"></br>
-                <label for="localidad">Localidad:</label></br>
-                <input type="text" name="localidad" th:field="*{localidad}">
-                <label for="decripcion">Descripición:</label></br>
-                <input type="text" name="descripcion" th:field="*{descripcion}"></br>
-                <label for="precio">Precio:</label></br>
-                <input type="number" name="precio" th:field="*{precio}"><br/>
-                <input type="submit" name="Guardar" value="Guardar" />
-            </form>
+        <div class="container text-center">
+            <h1 class="mt-5 mb-4">Datos de la oferta</h1>
+            <a th:href="@{/oferta/listadoOferta}" id="Regresar" class="btn btn-secondary mb-3">Regresar</a>
+            <div class="col-md-6 offset-md-3">
+                <form th:action="@{/oferta/guardarOferta}"
+                      method="POST"
+                      th:object="${oferta}"
+                      class="form">
+
+                    <div class="form-group mb-3">
+                        <label for="nombreLugar">Nombre del Lugar:</label>
+                        <input type="hidden" name="idOferta" th:field="*{idOferta}" class="form-control">
+                        <input type="text" name="nombreLugar" th:field="*{nombreLugar}" class="form-control">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="localidad">Localidad:</label>
+                        <input type="text" name="localidad" th:field="*{localidad}" class="form-control">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="descripcion">Descripción:</label>
+                        <input type="text" name="descripcion" th:field="*{descripcion}" class="form-control">
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label for="precio">Precio:</label>
+                        <input type="number" name="precio" th:field="*{precio}" class="form-control">
+                    </div>
+
+                    <input type="submit" name="Guardar" value="Guardar" class="btn btn-dark mt-3">
+                </form>     
+            </div>
         </div>
     </body>
 </html>

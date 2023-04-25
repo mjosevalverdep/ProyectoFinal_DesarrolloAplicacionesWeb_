@@ -48,9 +48,10 @@
                             <img th:src="@{${tour.rutaImagen}}" height="100%" width="100%" />
                         </figure>
                         <br/>
-                        <h4 class="card-subtitle mb-2 text-muted text-end">$[[${#numbers.formatDecimal(tour.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]</h4>
-                        <h3 class="card-subtitle"style="color: black">[[${tour.tipo}]]</h3>
-                        <p class="card-text" style="color: black">[[${tour.descripcion}]]</p>
+                        <h4 class="card-subtitle mb-2 text-muted text-end">Precio: $[[${#numbers.formatDecimal(tour.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]</h4>
+                        <h3 class="card-subtitle"style="color: black">Tipo de Tour: [[${tour.tipo}]]</h3>
+                        <p class="card-text" style="color: black">Descripcion: <br> [[${tour.descripcion}]]</p>
+                        <a class="card-link" th:href="@{/Contacto}">Contactar para adquirir este tour</a> 
                         <a class="card-link btn btn-dark text-white" th:href="@{/tour/modificarTour/} + ${tour.idTour}" sec:authorize="hasRole('ROLE_ADMIN')">Modificar</a>
                         <a class="card-link btn btn-dark text-white" th:href="@{/tour/eliminarTour/} + ${tour.idTour}" sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</a>
                     </div>

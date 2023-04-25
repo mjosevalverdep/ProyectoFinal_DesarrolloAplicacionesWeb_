@@ -40,15 +40,16 @@
             <br>
             <br>
             <div class="row row-cols-2" th:if="${ofertas != null and !ofertas.empty}">
-                <div class="card" th:each="oferta : ${ofertas}">
+                <div class="card" style="clear: both; background-clip: padding-box;"  th:each="oferta : ${ofertas}">
                     <div class="card-body">
                         <h5 class="card-title" style="color: black">[[${oferta.nombreLugar}]]</h5>
-                        <h6 class="card-subtitle mb-2 text-muted text-end">$[[${#numbers.formatDecimal(oferta.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]</h6>
-                        <h7 class="card-subtitle" style="color: black">[[${oferta.localidad}]]</h7>
+                        <h6 class="card-subtitle mb-2 text-muted text-end">Precio: $[[${#numbers.formatDecimal(oferta.precio, 1, 'DEFAULT', 2, 'DEFAULT')}]]</h6>
+                        <h7 class="card-subtitle" style="color: black">Ubicacion: [[${oferta.localidad}]]</h7>
                         <figure>
                             <img th:src="@{${oferta.rutaImagen}}" height="100%" width="100%" />
                         </figure>
-                        <p class="card-text" style="color: black">[[${oferta.descripcion}]]</p>
+                        <p class="card-text" style="color: black">Descripcion: <br>[[${oferta.descripcion}]]</p>
+                        <a class="card-link" th:href="@{/Contacto}">Contactar para adquirir esta oferta</a> 
                         <a class="card-link btn btn-dark text-white" th:href="@{/oferta/modificarOferta/} + ${oferta.idOferta}" sec:authorize="hasRole('ROLE_ADMIN')">Modificar</a>
                         <a class="card-link btn btn-dark text-white" th:href="@{/oferta/eliminarOferta/} + ${oferta.idOferta}" sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</a>
                     </div>
