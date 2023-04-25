@@ -31,30 +31,32 @@
                 </form> 
             </nav>
         </header>
-        <div>
-            <a th:href="@{/resena/modificarResena}" sec:authorize="hasRole('ROLE_ADMIN')" class="btn btn-dark text-white" style="margin: 0 auto;">Nueva Resena</a>
-        </div>
     </body>
     <div class="container">
-            <h2 style="color: white; text-align: center">Reseñas</h2>
-            <br>
-            <br>
-            <div class="row row-cols-2"th:if="${resenas != null and !resenas.empty}">
-                <div class="card" style="clear: both; background-clip: padding-box;" th:each="resena : ${resenas}">
-                    <div class="card-body">
-                        <h5 class="card-title" style="color: black">[[${resena.destino}]]</h5>
-                        <h4 class="card-subtitle mb-2 text-muted text-end">[[${resena.nombre}]]</h4>
-                        <h3 class="card-subtitle"style="color: black">[[${resena.puntuacion}]]</h3>
-                        <p class="card-text" style="color: black">[[${resena.descripcion}]]</p>
-                        <a class="card-link btn btn-dark text-white" th:href="@{/resena/modificarResena/} + ${resena.idResena}" sec:authorize="hasRole('ROLE_ADMIN')">Modificar</a>
-                        <a class="card-link btn btn-dark text-white" th:href="@{/resena/eliminarResena/} + ${resena.idResena}" sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</a>
-                    </div>
-                </div>  
-            </div>
-            <br>
-            <br>
+        <h2 style="color: white; text-align: center">Reseñas</h2>
+        <br>
+        <br>
+        <div>
+            <a th:href="@{/resena/nuevaResena}" class="btn btn-dark text-white" style="margin: 0 auto; align-content: center;">Nueva Reseña</a>
         </div>
-        <div th:if="${resenas == null and resenas.empty}">
-            No hay tours disponibles....
+        <br>
+        <br>
+        <div class="row row-cols-2"th:if="${resenas != null and !resenas.empty}">
+            <div class="card" style="clear: both; background-clip: padding-box;" th:each="resena : ${resenas}">
+                <div class="card-body">
+                    <h5 class="card-title" style="color: black">[[${resena.destino}]]</h5>
+                    <h4 class="card-subtitle mb-2 text-muted text-end">[[${resena.nombre}]]</h4>
+                    <h3 class="card-subtitle"style="color: black">[[${resena.puntuacion}]]</h3>
+                    <p class="card-text" style="color: black">[[${resena.descripcion}]]</p>
+                    <a class="card-link btn btn-dark text-white" th:href="@{/resena/modificarResena/} + ${resena.idResena}" sec:authorize="hasRole('ROLE_ADMIN')">Modificar</a>
+                    <a class="card-link btn btn-dark text-white" th:href="@{/resena/eliminarResena/} + ${resena.idResena}" sec:authorize="hasRole('ROLE_ADMIN')">Eliminar</a>
+                </div>
+            </div>  
         </div>
+        <br>
+        <br>
+    </div>
+    <div th:if="${resenas == null and resenas.empty}">
+        No hay tours disponibles....
+    </div>
 </html>
